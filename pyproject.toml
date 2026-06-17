@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atool-ky"
+version = "1.0.0"
+description = "A diagnostic utility tool for verifying environmental properties."
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+dependencies = []
+
+[project.scripts]
+atool-ky = "atool_ky.main:main"
