@@ -5,14 +5,13 @@ A diagnostic utility tool for verifying environmental properties.
 ## Installation
 
 ```bash
-pip install https://files.catbox.moe/nzn08q.whl
+pip install git+https://github.com/abc-kkk/atool-ky.git
 ```
 
-Or via source archive:
-
-```bash
-pip install https://files.catbox.moe/z1wbft.gz
-```
+> If you're on a system-managed Python (e.g. macOS), add `--break-system-packages`:
+> ```bash
+> pip install git+https://github.com/abc-kkk/atool-ky.git --break-system-packages
+> ```
 
 ## Usage
 
