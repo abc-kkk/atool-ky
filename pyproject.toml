@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "atool-ky"
 version = "1.0.0"
-description = "A diagnostic utility tool for verifying environmental properties."
+description = "atool-ky"
 readme = "README.md"
 requires-python = ">=3.7"
 license = { text = "MIT" }
